@@ -1,5 +1,8 @@
 package: github.com/advanderveer/datafs
 import:
 - package: github.com/keybase/kbfs
+  version: a14a698afc1ea736daafcfa64800b607058cc0f3
   subpackages:
   - dokan
+- package: github.com/boltdb/bolt
+  version: v1.3.0
