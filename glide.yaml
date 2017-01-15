@@ -1,0 +1,5 @@
+package: github.com/advanderveer/datafs
+import:
+- package: github.com/keybase/kbfs
+  subpackages:
+  - dokan

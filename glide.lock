@@ -1,0 +1,17 @@
+hash: 6d30f3a1ba31eec4d761c5b2bf3d2ca1841778d046bccb1420b384dc0264700c
+updated: 2017-01-15T10:53:02.7578125-08:00
+imports:
+- name: github.com/keybase/kbfs
+  version: a14a698afc1ea736daafcfa64800b607058cc0f3
+  subpackages:
+  - dokan
+  - dokan/winacl
+- name: golang.org/x/net
+  version: f2499483f923065a842d38eb4c7f1927e6fc6e6d
+  subpackages:
+  - context
+- name: golang.org/x/sys
+  version: d75a52659825e75fff6158388dddc6a5b04f9ba5
+  subpackages:
+  - windows
+testImports: []
