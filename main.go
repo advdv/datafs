@@ -31,7 +31,11 @@ func main() {
 	log.Printf("using bolt db '%s' as filesystem backend", db.Path())
 	defer db.Close()
 
-	fs := datafs.NewBoltFS(db)
+	fs, err := datafs.NewBoltFS(db)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	conf := &dokan.Config{
 		FileSystem: fs,
 		Path:       `T:\`,

@@ -40,7 +40,7 @@ func (t EmptyFS) ErrorPrint(err error) {
 
 // CreateFile is called to open and create files.
 func (t EmptyFS) CreateFile(ctx context.Context, fi *dokan.FileInfo, cd *dokan.CreateData) (dokan.File, bool, error) {
-	debug("EmptyFS.CreateFile")
+	debug("EmptyFS.CreateFile(ctx, '"+fi.Path(), "', cd")
 	return EmptyFile{}, true, nil
 }
 
@@ -123,7 +123,7 @@ func (t EmptyFile) FlushFileBuffers(ctx context.Context, fi *dokan.FileInfo) err
 
 // GetFileInformation - corresponds to stat.
 func (t EmptyFile) GetFileInformation(ctx context.Context, fi *dokan.FileInfo) (*dokan.Stat, error) {
-	debug("EmptyFile.GetFileInformation")
+	debug("EmptyFile.GetFileInformation(ctx, '" + fi.Path() + "')")
 	var st dokan.Stat
 	st.FileAttributes = dokan.FileAttributeNormal
 	return &st, nil
@@ -135,8 +135,8 @@ func (t EmptyFile) GetFileInformation(ctx context.Context, fi *dokan.FileInfo) (
 // Pattern will be an empty string unless UseFindFilesWithPattern is enabled - then
 // it may be a pattern like `*.png` to match. All implementations must be prepared
 // to handle empty strings as patterns.
-func (t EmptyFile) FindFiles(context.Context, *dokan.FileInfo, string, func(*dokan.NamedStat) error) error {
-	debug("EmptyFile.FindFiles")
+func (t EmptyFile) FindFiles(ctx context.Context, fi *dokan.FileInfo, pattern string, fn func(*dokan.NamedStat) error) error {
+	debug("EmptyFile.FindFiles(ctx, '" + fi.Path() + "', '" + pattern + "', fn")
 	return nil
 }
 
